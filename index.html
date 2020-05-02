@@ -32,13 +32,19 @@
 
   </div>
 
+  <br>
+  <b>JS bin練習：</b>
+  <br>
+  <img src="jsbin.png" alt="" class="center"/>
+
 
   <br>
   <b>Konva練習：</b>
   <br>
-  <b><h3>奧運  Olympic Games</h3></b>
+  <b><h2>奧運  Olympic Games</h2></b>
   <script src="https://unpkg.com/konva@3.4.1/konva.min.js"></script>
   <div id="container"></div>
+  <h2>
   <script>
   // first we need to create a stage
 var stage = new Konva.Stage({
@@ -108,103 +114,7 @@ var stage = new Konva.Stage({
   
   // draw the image
   layer.draw();
-</script>
-
-<b><h4>動畫-紅球</h4></b>
-  <script src="https://unpkg.com/konva@3.4.1/konva.min.js"></script>
-  <div id="container"></div>
-  <script>
-    var stage = new Konva.Stage( {
-  container: 'container', width: 500, height: 100
-});
-var layer = new Konva.Layer();
-
-var circle = new Konva.Circle({
-  x:30, y:50, radius:10, fill:'red'
-});
-
-layer.add(circle);
-stage.add(layer);
-
-var speed = 0.2; // pixels per ms
-var anim = new Konva.Animation(function(frame)
-{
-  circle.move({x: frame.timeDiff*speed, y:0});
-  if (circle.x()>470) { speed = -0.2; }
-  if (circle.x()<30) { speed = 0.2; }
-}, layer);
-
-anim.start()
-</script>
-
-
-<b><h4>動畫-旋轉</h4></b>
-  <script src="https://unpkg.com/konva@3.4.1/konva.min.js"></script>
-  <div id="container"></div>
-  <script>
-    var stage = new Konva.Stage({
-  container: 'container2',
-  width: 700,  height: 300
-});
-
-var layer = new Konva.Layer();
-
-var blueRect = new Konva.Rect({ // rotation anchor = left top
-  x: 120,  y: 150,
-  width: 100,  height: 50,
-  fill: '#00D2FF',
-  stroke: 'black',  strokeWidth: 4
-});
-
-var center1 = new Konva.Circle({
-	x: 120, y: 150, fill: 'red', radius: 3
-});
-
-var yellowRect = new Konva.Rect({ // rotation anchor = rect center
-  x: 320,  y: 150,
-  width: 100,  height: 50,
-  fill: 'yellow',
-  stroke: 'black',  strokeWidth: 4,
-  offset: { x: 50,  y: 25 }  // move rect by (-50, -25) initially
-});
-
-var center2 = new Konva.Circle({ // rotation center = shape's (x, y)
-	x: 320, y: 150, fill: 'red', radius: 3
-});
-
-var greenRect = new Konva.Rect({ // rotation anchor = outside rect
-  x: 520,  y: 150,
-  width: 100,  height: 50,
-  fill: 'green',
-  stroke: 'black',  strokeWidth: 4,
-  offset: { x: -30, y: 25 } // move rect by (30, -25) initially
-});
-
-var center3 = new Konva.Circle({ // rotation center = shape's (x, y)
-	x: 520, y: 150, fill: 'red', radius: 3
-});
-
-layer.add(blueRect, yellowRect, greenRect);
-layer.add(center1, center2, center3);
-stage.add(layer);
-
-// angular speed = 60 degrees per second
-var angularSpeed = 60;
-var totaldegree = 0;
-var anim = new Konva.Animation(function(frame) {
-  var angleDiff = frame.timeDiff/1000.0 * angularSpeed;
-  totaldegree += angleDiff;
-  if (totaldegree >= 420) { totaldegree = 0; } // Pause a little between
-  else if (totaldegree <= 360) {               // 360 ~ 420 degrees
-    blueRect.rotation(totaldegree);
-    yellowRect.rotation(totaldegree);
-    greenRect.rotation(totaldegree);
-  }
-}, layer);
-
-anim.start();
-</script>
-
+</script></h2>
 
 </body>
 </html>

@@ -1,6 +1,5 @@
 body {
     background: lightcyan;
-    text-align: center;
    
   }
   
@@ -13,9 +12,10 @@ body {
       font-family: cursive;
   }
   
-  b {
-      background: ;
+  h2 {
+      
       color: black;
+      font-family: cursive;
       text-align: center;
   }
   .center {
